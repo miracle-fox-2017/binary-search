@@ -58,40 +58,33 @@ function binary_search (search, array) {
   var mid = Math.floor(array.length/2);
   var count = 0;
 
+  //if jumlah looping > panjang array return -1
+  if(array.length == 1){
+    if(array[0] != search){
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+
   //if mid == search.... return mid
-  if(array[mid] == search){
+  else if(array[mid] == search){
     return mid;
   }
 
-  while(array[mid] != search){
+  else {
     //if search > mid.... masuk geng besar
     if(search > array[mid]){
       //geng besar
       //max = tetep, min = mid, mid = max+min/2
-      min = mid;
-      mid = Math.floor((max+min)/2);
-      //cek if mid == search return mid
-      if(array[mid] == search){
-        return mid;
-      }
+      return binary_search(search, array.slice(mid));
     } else {
     //else search < mid.... masuk geng kecil
       //geng kecil
-      //max = mid, min = tetep, mid = max+min/2
-      max = mid;
-      mid = Math.floor((max+min)/2);
       //cek if mid == search return mid
-      if(array[mid] == search){
-        return mid;
-      }
+      return binary_search(search, array.slice(0,mid));
     }
 
-    //if jumlah looping > panjang array return -1
-    if(count>array.length){
-      return -1;
-    }
-
-    count += 1;
   }
 
 }
