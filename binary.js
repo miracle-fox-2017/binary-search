@@ -38,6 +38,23 @@ function binary_search (search, array) {
   return `${false} -1`
 }
 
+// function binary_search (search, array, start = 0, end = array.length) {
+//   // Your searching code
+//
+//   if(start <= end){
+//     let mid = Math.floor((start + end)/2)
+//     // console.log('-=-=-=-' + array[mid])
+//     if(array[mid] === search){
+//       return `${true} | indeks = ${mid}`
+//     }else if(search > array[mid]){
+//       return binary_search (search, array, mid + 1, end)
+//     }else if(search < array[mid]){
+//       return binary_search (search, array, start, mid -1)
+//     }
+//   }
+//   return `${false} -1`
+// }
+
 var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 
