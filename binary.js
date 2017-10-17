@@ -37,7 +37,7 @@ function binary_search (search, array) {
    let mid=Math.floor(array.length/2);
    let end=array.length;
    //console.log(start,mid,end)
-   if(search === mid){
+   if(search === array[mid]){
      return mid
    }else{
      let count =0;
