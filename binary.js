@@ -1,6 +1,14 @@
 'use strict'
-
-
+/*
+1. tentukan nilai atas dan bawah
+2. ulang selama nilai atas lebih besar sama dengan bawah
+tentukan nilai tengah dengan atas + bawah / 2
+jika search lebih besar dari nilai array tengah maka bawah = tengah + 1
+else jika search lebih kecil dari nilai array tengah maka atas = tengah - 1
+else jika search sama dengan array tengah maka return tengah
+akhir ulang
+3. return -1 jika tidak ditemukan
+*/
 var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8]
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
