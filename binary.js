@@ -25,13 +25,10 @@ function binarySearch (search, array) {
   var mid = Math.floor((max + min) / 2)
 
   while(search !== array[mid] && min <= max){
-    // console.log(search);
-    // console.log(array[mid]);
-    // console.log(mid);
-    if(search === array[mid]){
-      return mid
-    }
-    else if(search < array[mid]) {
+    // if(search === array[mid]){
+    //   return mid
+    // }
+    if(search < array[mid]) {
       max = mid - 1
       mid = Math.floor((max + min) / 2)// kayanya salah disini 0 + 0 / 2
     }
@@ -40,7 +37,7 @@ function binarySearch (search, array) {
       mid = Math.floor((max + min) / 2)
     }
   }
-  return -1
+  return mid
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
@@ -48,12 +45,12 @@ var arrayGanjilSorted = ownSort(testArrayGanjil)
 
 // Driver code
 console.log(binarySearch(8, arrayGenapSorted))
-// console.log(binarySearch(10, arrayGenapSorted))
-// console.log(binarySearch(33, arrayGenapSorted))
+console.log(binarySearch(10, arrayGenapSorted))
+console.log(binarySearch(33, arrayGenapSorted))
 //
-// console.log(binarySearch(53, arrayGanjilSorted))
-// console.log(binarySearch(3, arrayGanjilSorted))
-// console.log(binarySearch(2, arrayGanjilSorted))
+console.log(binarySearch(53, arrayGanjilSorted))
+console.log(binarySearch(3, arrayGanjilSorted))
+console.log(binarySearch(2, arrayGanjilSorted))
 
 // module.exports = {
 //   binary_search
