@@ -5,26 +5,65 @@ var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
   // Your sorting code
+  let temp = 0
+  let swap = true
+
+  while(swap){
+  	temp = arr[0]
+	swap = false
+
+	for(let i=0; i<arr.length-1; i++){
+		if(temp>arr[i+1]){
+			arr[i]=arr[i+1]
+			arr[i+1]=temp
+			swap=true
+				//console.log(arr);
+		}else{
+			temp=arr[i+1]
+		}
+	}
+  }
+
   return arr
 }
 
-function binarySearch (search, array) {
+function binarySearch (arr, search, start, end) {
   // Your searching code
-  return 0;
+
+  	let mid = Math.ceil((start + end)/2)
+
+	if(arr[mid] === search){
+		return mid
+	}
+
+	if(start === end){
+		return -1
+	}
+
+	if(arr[mid]>search){
+		return binarySearch(arr, search, start, mid-1)
+	}
+
+	if(arr[mid]<search){
+		return binarySearch(arr, search, mid+1, end)
+	}
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 
-// Driver code
-console.log(binary_search(8, arrayGenapSorted))
-console.log(binary_search(10, arrayGenapSorted))
-console.log(binary_search(33, arrayGenapSorted))
+console.log(arrayGenapSorted);
+console.log(arrayGanjilSorted);
 
-console.log(binary_search(53, arrayGanjilSorted))
-console.log(binary_search(3, arrayGanjilSorted))
-console.log(binary_search(2, arrayGanjilSorted))
+// Driver code
+console.log(binarySearch(arrayGenapSorted, 8, 0, arrayGenapSorted.length ))
+console.log(binarySearch(arrayGenapSorted, 10, 0, arrayGenapSorted.length))
+console.log(binarySearch(arrayGenapSorted, 33, 0, arrayGenapSorted.length))
+
+console.log(binarySearch(arrayGanjilSorted, 53, 0, arrayGanjilSorted.length))
+console.log(binarySearch(arrayGanjilSorted, 3, 0, arrayGanjilSorted.length))
+console.log(binarySearch(arrayGanjilSorted, 2, 0, arrayGanjilSorted.length))
 
 module.exports = {
-  binary_search
+  binarySearch
 }
