@@ -51,7 +51,6 @@ function ownSort(arr)
 
 function binarySearch(search, array)
 {
-  console.log(array);
   let awal = 0;
   let akhir = array.length;
   let mid = Math.floor((awal+akhir) / 2);
