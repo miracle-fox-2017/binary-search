@@ -17,15 +17,18 @@ function ownSort(arr) {
   }
   return arr
 }
-
+0,1,2,3,4,5,6,7,8,9
 function binary_search (search, array) {
   // Your searching code
   let start = 0;
   let end = array.length;
-  let mid = Math.round(end/2);
+  let mid = Math.floor((start+end)/2);
+  if (search === array[mid]){
+    return mid;
+  }
   while (search !== array[mid]){
   	if (search >= array[mid]){
-  		start = end+1;
+  		start = mid+1;
   		end = array.length;
   		mid = Math.floor((start+end)/2);
   	}
@@ -35,7 +38,7 @@ function binary_search (search, array) {
   		mid = Math.floor((start+end)/2);
   	}else {
 	  	return -1
-	}  	
+	  }  	
   }
   return mid;
 }
@@ -44,6 +47,7 @@ var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 
 // Driver code
+
 console.log(binary_search(8, arrayGenapSorted))
 console.log(binary_search(10, arrayGenapSorted))
 console.log(binary_search(33, arrayGenapSorted))
