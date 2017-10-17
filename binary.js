@@ -20,23 +20,20 @@ function ownSort(arr) {
   return arr
 }
 
-console.log(ownSort(testArrayGenap))
-console.log(ownSort(testArrayGanjil))
+// console.log(ownSort(testArrayGenap))
+// console.log(ownSort(testArrayGanjil))
 
-function binary_search (search, array) {
+function binary_search (search, array, awal = 0, akhir = array.length-1) {
   // Your searching code
-  let awal = 0,
-  akhir = array.length-1
+  let tengah = Math.floor((awal + akhir) / 2)
 
-  while(awal <= akhir) {
-  // console.log(`awal = ${awal}, tengah = ${tengah}, akhir = ${akhir}`)
-  	let tengah = Math.floor((awal + akhir) / 2)
+  if (awal <= akhir) {
   	if (search < array[tengah]) {
   		// console.log('----masuk kiri')
-  		akhir = tengah - 1
+  		return binary_search(search, array, awal, akhir = tengah - 1)
   	} else if (search > array[tengah]) {
   		// console.log('----masuk kanan')
-  		awal = tengah + 1
+  		return binary_search(search, array, awal = tengah + 1, akhir)
   	} else {
   	 	return tengah
   	}
