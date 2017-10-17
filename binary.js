@@ -18,16 +18,18 @@ function binary_search (search, array) {
   let start = 0;
   let end = array.length-1;
   let mid = Math.round(end/2);
+  let hasil = 0
   while (search !== array[mid]){
-  	if (search >= array[mid]){
+  	if (search > array[mid]){
   		start = end+1;
   		end = array.length;
-  		mid = Math.floor((start+end)/2);
-  	}
-  	if (search <= array[mid]){
+      hasil = start + end;
+  		mid = Math.floor((hasil)/2);
+  	}else if (search < array[mid]){
   		start = 0;
   		end = mid-1;
-  		mid = Math.floor((start+end)/2);
+      hasil = (start + end)/2;
+  		mid = Math.floor(hasil);
   	}else {
 	  	return -1
 	  }
