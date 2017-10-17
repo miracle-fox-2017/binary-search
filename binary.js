@@ -17,15 +17,11 @@ function ownSort(arr) {
   }
   return arr
 }
-0,1,2,3,4,5,6,7,8,9
 function binary_search (search, array) {
   // Your searching code
   let start = 0;
   let end = array.length;
   let mid = Math.floor((start+end)/2);
-  if (search === array[mid]){
-    return mid;
-  }
   while (search !== array[mid]){
   	if (search >= array[mid]){
   		start = mid+1;
