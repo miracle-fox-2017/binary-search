@@ -5,26 +5,91 @@ var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
   // Your sorting code
-  return arr
+  var sortedArray = [];
+  var terkecil = 0;
+
+  while (arr.length > 0) {
+  	terkecil = getMinArray(arr);
+  	sortedArray.push(terkecil);
+  	arr.splice(arr.indexOf(terkecil), 1);
+  }
+
+  return sortedArray;
 }
 
-function binarySearch (search, array) {
-  // Your searching code
-  return 0;
+function getMinArray(arr) {
+  var minVal = arr[0];
+
+  for (var i = 0; i < arr.length; i++) {
+    if (minVal > arr[i]) {
+      minVal = arr[i];
+    }
+  }
+
+  return minVal;
 }
+
+function binarySearch(cari, arr){
+  var startIndex = 0;
+  var endIndex = arr.length - 1;
+  var searchFound = false;
+  var resIndex = 0;
+  debugger
+
+  while (searchFound === false) {
+    var midIndex = Math.floor(startIndex + (endIndex - startIndex) / 2);
+    var arrMidValue = arr[midIndex];
+    debugger
+
+    if (arrMidValue > cari) {
+      debugger
+      endIndex = midIndex - 1;
+    }
+
+    if (arrMidValue < cari) {
+      debugger
+      startIndex = midIndex + 1;
+    }
+
+    if (arrMidValue === cari) {
+      debugger
+      resIndex = midIndex;
+      searchFound = true;
+    }
+
+    if (Math.abs(endIndex - startIndex) == 1) {
+      resIndex = -1;
+      break;
+    }   
+
+    if (midIndex === arr.length - 1 &&  arr[midIndex] !== cari) {
+      return - 1;
+    }
+
+    if (midIndex === 0  &&  arr[midIndex] !== cari) {
+      return - 1;
+    }
+  } 
+
+  return resIndex;
+}
+
 
 var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 
+console.log(arrayGenapSorted);
+console.log(arrayGanjilSorted);
 // Driver code
-console.log(binary_search(8, arrayGenapSorted))
-console.log(binary_search(10, arrayGenapSorted))
-console.log(binary_search(33, arrayGenapSorted))
+console.log(binarySearch(8, arrayGenapSorted))
+console.log(binarySearch(10, arrayGenapSorted))
+console.log(binarySearch(33, arrayGenapSorted))
 
-console.log(binary_search(53, arrayGanjilSorted))
-console.log(binary_search(3, arrayGanjilSorted))
-console.log(binary_search(2, arrayGanjilSorted))
+console.log(binarySearch(53, arrayGanjilSorted))
+console.log(binarySearch(3, arrayGanjilSorted))
+console.log(binarySearch(2, arrayGanjilSorted))
 
 module.exports = {
-  binary_search
+  binarySearch
 }
+  
