@@ -61,6 +61,14 @@ function binarySearch(cari, arr){
       resIndex = -1;
       break;
     }   
+
+    if (midIndex === arr.length - 1 &&  arr[midIndex] !== cari) {
+      return - 1;
+    }
+
+    if (midIndex === 0  &&  arr[midIndex] !== cari) {
+      return - 1;
+    }
   } 
 
   return resIndex;
@@ -70,7 +78,8 @@ function binarySearch(cari, arr){
 var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 
-
+console.log(arrayGenapSorted);
+console.log(arrayGanjilSorted);
 // Driver code
 console.log(binarySearch(8, arrayGenapSorted))
 console.log(binarySearch(10, arrayGenapSorted))
@@ -83,3 +92,4 @@ console.log(binarySearch(2, arrayGanjilSorted))
 module.exports = {
   binarySearch
 }
+  
