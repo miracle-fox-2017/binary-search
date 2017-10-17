@@ -18,32 +18,27 @@ for(let i =0; i < len; i++ ){
   return unsortedList
 }
 
-function binary_search (search, array) {
-  // Your searching code
-  console.log(array);
-  let high = array.length-1;
-  //console.log(high);
+function binary_search (search, array, low = 0, high = array.length-1) {
 
-  let low = 0;
-  //console.log(low);
-  while (low <= high) {
-      let mid = Math.ceil((low + high)/2)
+
+   if(low <= high) {
+
+    let mid = Math.ceil((low + high)/2)
    if( search > array[mid]){
-      low = mid + 1
+      return binary_search(search, array, mid+1, high )
 
     }else if(search < array[mid] ){
-      high = mid-1
-
+        return binary_search(search, array, low, mid-1)
     }else{
       return mid
     }
-  }
 
+  }
   return -1
 
 
-  //let start =
-  //return 0;
+
+
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
@@ -51,12 +46,12 @@ var arrayGanjilSorted = ownSort(testArrayGanjil)
 
 // Driver code
 console.log(binary_search(8, arrayGenapSorted))
- console.log(binary_search(10, arrayGenapSorted))
- console.log(binary_search(33, arrayGenapSorted))
-//
- console.log(binary_search(53, arrayGanjilSorted))
-console.log(binary_search(3, arrayGanjilSorted))
- console.log(binary_search(2, arrayGanjilSorted))
+  console.log(binary_search(10, arrayGenapSorted))
+console.log(binary_search(33, arrayGenapSorted))
+// //
+  console.log(binary_search(53, arrayGanjilSorted))
+ console.log(binary_search(3, arrayGanjilSorted))
+  console.log(binary_search(2, arrayGanjilSorted))
 
 module.exports = {
   binary_search
