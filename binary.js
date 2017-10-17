@@ -23,7 +23,7 @@ function binarySearch (search, array) {
   let tengah = Math.floor(array.length/2);
 
 
-  if(search === tengah){
+  if(search === array[tengah]){
     return tengah
   }
   else{
